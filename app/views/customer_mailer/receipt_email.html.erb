@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Order <%= @order.id %></h1>
+    <p>Your order details:</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Unit Price</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @line.each do |line_item| %>
+          <tr>
+            <td>
+              <h4><%= line_item.product.name %></h4>
+            </td>
+            <td>
+              $<%= line_item.item_price_cents / 100.0 %>
+            </td>
+            <td>
+              <%= line_item.quantity %>
+            </td>
+            <td>
+              $<%= line_item.total_price_cents / 100.0 %>
+            </td>
+          </tr>
+        <% end %>          
+      </tbody>
+      <tfoot>
+        Total: <%= @order.total_cents / 100.0 %>
+      </foot>
+    </table>
+    <p>
+      To login to the site, just follow this link:.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
