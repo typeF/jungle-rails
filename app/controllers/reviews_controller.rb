@@ -13,7 +13,6 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    puts "Attempting to destroy"
     @review = Review.find params[:id]
     product_id = @review.product_id
     @review.destroy

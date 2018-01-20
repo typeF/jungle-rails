@@ -78,10 +78,27 @@ main section.categories-show {
 
 main section.products-show {
 
+  .comment {
+    margin-top: 15px;
+  }
+
+  .fa-star {
+    margin-top: 5px;    
+  }
+
   .product-detail {
     img.main-img {
       max-width: 100%;
     }
+  }
+
+  .rating {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  .trash {
+    margin-top: 5px;
   }
 }
 

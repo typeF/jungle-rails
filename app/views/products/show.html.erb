@@ -22,34 +22,47 @@
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
-          <dt>Reviews</dt>
+        </dl>
+        <dl class="dl-horizontal">
+            <dd><h4>Product Reviews</h4></dd>
+        </dl>
           <% @reviews.each do |review| %>
-            <dd><%= review.description%></dd>
-            <dd>Rating:</dd>
+        <dl class="dl-horizontal comment">
+            <dt>Review:</dt>
+            <dd><%= review.description %></dd>
+            <dt></dt>
               <dd>
               <% (1..review.rating).each do |counter| %>
                 <i class="fa fa-star btn btn-sm btn-warning" aria-hidden="true"></i>
               <% end %>
-              <dd>
+              </dd>
                 <% if current_user && current_user.id == review.user_id %>
-                  <%= link_to fa_icon('trash'), [@product, review], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+                  <dt>Delete comment:</dt>
+                  <dd><%= link_to fa_icon('trash'), [@product, review], class: 'trash btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %></dd>
                 <% end %>
               </dd>
-              </dd>
+          </dl>
           <% end %>
-          <% if current_user %>
-            <div>
+        <% if current_user %>
+          <div>
+            <dl class="dl-horizontal">
+            <dd><h5>Add a review</h5></dd>
               <%= form_for ([@product, Review.new]) do |f| %>
-                <%= f.text_area :description %>
-                <%= f.select :rating, [1,2,3,4,5] %>
+                <dt> Comment: </dt>
+                <dd><%= f.text_area :description %></dd>
+                <dt class="rating"> Rating: </dt>
+                <dd class="rating"><%= f.select :rating, [1,2,3,4,5] %></dd>
                 <%= f.hidden_field :product_id, :value => @product.id %>
                 <%= f.hidden_field :user_id, :value => current_user.id %>
-                <%= f.submit 'Submit' %>
+                <dt></dt>
+                <dd><button type="button submit" class="btn btn-sm btn-primary add-review">Add Review</button></dd>
               <% end %>
-            </div>
-          <% end %>
-      </dl>
+            </dL>
+          </div>
+        <% end %>
+        
       </div>
+      
     </div>
 
   </article>
