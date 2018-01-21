@@ -6,9 +6,9 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 
 ## Features
 
-!["Main Product page"]()
-!["Order details page"]()
-!["Cart page"]()
+!["Product Index"](https://github.com/typeF/jungle-rails/blob/master/docs/Product%20Index.png?raw=true)
+!["Product Details"](https://github.com/typeF/jungle-rails/blob/master/docs/Product%20Details.png?raw=true)
+!["Cart"](https://github.com/typeF/jungle-rails/blob/master/docs/Cart%20Page.png?raw=true)
 
 
 ## Setup
