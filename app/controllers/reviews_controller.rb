@@ -9,6 +9,7 @@ class ReviewsController < ApplicationController
       redirect_to product_path(@review.product_id)
     else
       redirect_to :back
+      
     end
   end
 

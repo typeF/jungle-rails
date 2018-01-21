@@ -5,6 +5,6 @@ class CustomerMailer < ApplicationMailer
     @line = LineItem.includes(:product).where(order_id: order.id)
     @order = order
     @email = order.email
-    mail(to: @email, subject: "Your order receipt from jungle")
+    mail(to: @email, subject: "Your order receipt from jungle - Order #{@order.id}")
   end
 end

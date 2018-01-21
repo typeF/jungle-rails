@@ -23,14 +23,15 @@
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
         </dl>
-        <dl class="dl-horizontal">
-            <dd><h4>Product Reviews</h4></dd>
-        </dl>
+        <% if @reviews.length > 0 %>
+          <dl class="dl-horizontal">
+              <dd><h4>Product Reviews</h4></dd>
+          </dl>
           <% @reviews.each do |review| %>
-        <dl class="dl-horizontal comment">
-            <dt>Review:</dt>
-            <dd><%= review.description %></dd>
-            <dt></dt>
+            <dl class="dl-horizontal comment">
+              <dt>Review:</dt>
+              <dd><%= review.description %></dd>
+              <dt></dt>
               <dd>
               <% (1..review.rating).each do |counter| %>
                 <i class="fa fa-star btn btn-sm btn-warning" aria-hidden="true"></i>
@@ -41,8 +42,10 @@
                   <dd><%= link_to fa_icon('trash'), [@product, review], class: 'trash btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %></dd>
                 <% end %>
               </dd>
-          </dl>
+            </dl>
           <% end %>
+        <% end %>
+          
         <% if current_user %>
           <div>
             <dl class="dl-horizontal">
